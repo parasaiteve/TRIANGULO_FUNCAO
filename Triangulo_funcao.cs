@@ -3,29 +3,51 @@ using System.Globalization;
 
 namespace Course
 {
+    // Definição da classe Triangulo
+    public class Triangulo
+    {
+        // Propriedades que representam os lados do triângulo
+        public double A { get; set; }
+        public double B { get; set; }
+        public double C { get; set; }
+        
+        // Método para calcular a área do triângulo
+        public double CalcularArea()
+        {
+            // Cálculo do semiperímetro
+            double p = (A + B + C) / 2.0;
+            
+            // Cálculo da área utilizando a fórmula de Heron
+            double area = Math.Sqrt(p * (p - A) * (p - B) * (p - C));
+            
+            return area;
+        }
+    }
+    
+    // Classe principal Program
     public class Program
     {
         public static void Main(string[] args)
         {
-            // Lê as medidas do Triângulo X
-            double[] medidasX = LerMedidasTriangulo("X");
+            // Ler as medidas do Triângulo X e criar objeto Triangulo correspondente
+            Triangulo x = LerTriangulo("X");
             
-            // Lê as medidas do Triângulo Y
-            double[] medidasY = LerMedidasTriangulo("Y");
+            // Ler as medidas do Triângulo Y e criar objeto Triangulo correspondente
+            Triangulo y = LerTriangulo("Y");
             
-            // Calcula a área do Triângulo X
-            double areaX = CalcularAreaTriangulo(medidasX);
+            // Calcular a área do Triângulo X
+            double areaX = x.CalcularArea();
             
-            // Calcula a área do Triângulo Y
-            double areaY = CalcularAreaTriangulo(medidasY);
+            // Calcular a área do Triângulo Y
+            double areaY = y.CalcularArea();
             
-            // Imprime a área do Triângulo X com 4 casas decimais de precisão
-            Console.WriteLine("Area de X =" + areaX.ToString("F4", CultureInfo.InvariantCulture));
+            // Imprimir a área do Triângulo X com 4 casas decimais de precisão
+            Console.WriteLine("Area de X = " + areaX.ToString("F4", CultureInfo.InvariantCulture));
             
-            // Imprime a área do Triângulo Y com 4 casas decimais de precisão
-            Console.WriteLine("Area de Y =" + areaX.ToString("F4", CultureInfo.InvariantCulture));
+            // Imprimir a área do Triângulo Y com 4 casas decimais de precisão
+            Console.WriteLine("Area de Y = " + areaY.ToString("F4", CultureInfo.InvariantCulture));
             
-            // Compara as áreas dos triângulos e imprime qual tem a maior área
+            // Comparar as áreas dos triângulos e imprimir qual tem a maior área
             if (areaX > areaY)
             {
                 Console.WriteLine("Maior area: X");
@@ -36,34 +58,22 @@ namespace Course
             }
         }
         
-        // Lê as medidas de um triângulo e retorna um array com as medidas
-        public static double[] LerMedidasTriangulo(string nomeTriangulo)
+        // Método para ler as medidas de um triângulo e retornar um objeto Triangulo
+        public static Triangulo LerTriangulo(string nomeTriangulo)
         {
-            double[] medidas = new double[3];
+            // Criar um objeto Triangulo
+            Triangulo triangulo = new Triangulo();
             
-            // Solicita ao usuário que entre com as medidas do triângulo
-            Console.WriteLine("Entre com as medidas do Triangulo " + nomeTriangulo + ":");
+            // Solicitar ao usuário que entre com as medidas do triângulo
+            Console.WriteLine("Entre com as medidas do triangulo " + nomeTriangulo + ":");
             
-            // Lê as medidas e armazena no array
-            for (int i = 0; i < 3; i++)
-            {
-                medidas[i] = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            }
+            // Ler as medidas e atribuir aos lados do objeto Triangulo
+            triangulo.A = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            triangulo.B = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            triangulo.C = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
             
-            return medidas;
-        }
-        
-        // Calcula a área de um triângulo com base nas medidas dos lados
-        public static double CalcularAreaTriangulo(double[] medidas)
-        {
-            double a = medidas[0];
-            double b = medidas[1];
-            double c = medidas[2];
-            
-            double p = (a + b + c) / 2.0;
-            double area = Math.Sqrt(p * (p - a) * (p - b) * (p - c));
-            
-            return area;
+            // Retornar o objeto Triangulo
+            return triangulo;
         }
     }
 }
