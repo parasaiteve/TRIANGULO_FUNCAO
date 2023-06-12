@@ -1,3 +1,4 @@
+//incluir a biblioteca
 using System;
 using System.Globalization;
 
@@ -27,6 +28,7 @@ namespace Course
     // Classe principal Program
     public class Program
     {
+        //programa principal
         public static void Main(string[] args)
         {
             // Ler as medidas do Triângulo X e criar objeto Triangulo correspondente
