@@ -1,4 +1,4 @@
-# TRIANGULO Classe
+# TRIANGULO CLASSE
 # versão 1.0
 # status do projeto ✔️ Concluído
 # topicos
