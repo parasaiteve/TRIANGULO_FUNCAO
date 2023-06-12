@@ -1,10 +1,13 @@
+//programa principal
 using System;
 using System.Globalization;
 
 namespace Course
 {
+    //classe
     public class Program
     {
+        // programa principal
         public static void Main(string[] args)
         {
             // Lê as medidas do Triângulo X
