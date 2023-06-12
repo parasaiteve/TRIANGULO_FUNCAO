@@ -1,4 +1,4 @@
-# TRIANGULO FUNCAO
+# TRIANGULO Classe
 # versão 1.0
 # status do projeto ✔️ Concluído
 # topicos
@@ -17,7 +17,7 @@ um codigo que calcula a area dois triangulos
 
 # Funciolidades
 
-o codigo calcula a area de dois triangulos e mostra qual triangulo possui a maior area
+o codigo calcula a area de dois triangulos e mostra qual triangulo possui a maior area usando classe na funcao
 
 # Linguagem programada
 
